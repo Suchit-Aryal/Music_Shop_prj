@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Browse our collection of premium handcrafted Indian classical instruments." />
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; img-src 'self' data: https:; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self';">
+    <title>Products | Traditional Music Instruments</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@500;600&family=Open+Sans:wght@400;600&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/whatsapp.css" />
+</head>
+
+<body class="font-sans text-gray-900 bg-white min-h-screen flex flex-col">
+    <!-- Navigation Bar -->
+    <header class="bg-white/95 backdrop-blur-md text-gray-900 sticky top-0 z-50 border-b border-gray-100 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <a href="index.html" class="flex items-center gap-3 group">
+                    <div class="bg-gray-900 p-2 rounded-lg transition-transform group-hover:scale-105">
+                        <img src="./assets/images/ui/logo.png" alt="Logo" class="h-8 w-8 object-contain" />
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-lg font-bold tracking-tight text-gray-900 leading-tight">Traditional
+                            Music</span>
+                        <span class="text-xs text-gray-500 font-medium tracking-wide">EST. 1990</span>
+                    </div>
+                </a>
+
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="index.html"
+                        class="text-gray-600 hover:text-yellow-600 font-medium transition-colors">Home</a>
+
+                    <div class="relative group">
+                        <button
+                            class="flex items-center gap-1 text-gray-600 hover:text-yellow-600 font-medium transition-colors py-2">
+                            Instruments
+                            <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>
+                        <div
+                            class="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-56 bg-white text-gray-900 rounded-xl shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 overflow-hidden transform origin-top">
+                            <div class="p-2 space-y-1">
+                                <a href="products.html?filter=percussion"
+                                    class="block px-4 py-2.5 hover:bg-yellow-50 hover:text-yellow-700 rounded-lg transition-colors">Percussion</a>
+                                <a href="products.html?filter=string"
+                                    class="block px-4 py-2.5 hover:bg-yellow-50 hover:text-yellow-700 rounded-lg transition-colors">String
+                                    Instruments</a>
+                                <a href="products.html?filter=wind"
+                                    class="block px-4 py-2.5 hover:bg-yellow-50 hover:text-yellow-700 rounded-lg transition-colors">Wind
+                                    Instruments</a>
+                                <div class="border-t border-gray-100 my-1"></div>
+                                <a href="products.html"
+                                    class="block px-4 py-2.5 hover:bg-yellow-50 hover:text-yellow-700 rounded-lg transition-colors font-semibold">Browse
+                                    All</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="products.html?filter=electronic"
+                        class="text-gray-600 hover:text-yellow-600 font-medium transition-colors">Electronic</a>
+                    <a href="products.html?filter=accessories"
+                        class="text-gray-600 hover:text-yellow-600 font-medium transition-colors">Accessories</a>
+                    <a href="https://mproaudio.com/" target="_blank"
+                        class="text-gray-600 hover:text-yellow-600 font-medium transition-colors">MPro</a>
+                    <a href="contact.html"
+                        class="px-5 py-2.5 bg-gray-900 text-white rounded-full font-medium hover:bg-gray-800 transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5">Contact
+                        Us</a>
+                </nav>
+
+                <button id="mobile-menu-btn"
+                    class="md:hidden p-2 text-gray-600 hover:text-gray-900 rounded-lg hover:bg-white focus:outline-none transition-colors"
+                    aria-label="Menu">
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobile-menu"
+            class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full left-0 shadow-lg">
+            <div class="px-4 py-6 space-y-4">
+                <a href="index.html" class="block text-lg font-bold text-gray-700 hover:text-yellow-600">Home</a>
+                <div class="space-y-2 border-l-2 border-gray-100 pl-4">
+                    <p class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Collections</p>
+                    <a href="products.html?filter=string" class="block text-gray-600 hover:text-yellow-600">String
+                        Instruments</a>
+                    <a href="products.html?filter=percussion"
+                        class="block text-gray-600 hover:text-yellow-600">Percussion</a>
+                    <a href="products.html?filter=wind" class="block text-gray-600 hover:text-yellow-600">Wind</a>
+                    <a href="products.html" class="block text-gray-600 hover:text-yellow-600 font-medium">Browse All</a>
+                </div>
+                <a href="products.html?filter=electronic"
+                    class="block text-lg font-medium text-gray-700 hover:text-yellow-600">Electronic</a>
+                <a href="products.html?filter=accessories"
+                    class="block text-lg font-medium text-gray-700 hover:text-yellow-600">Accessories</a>
+                <a href="https://mproaudio.com/" target="_blank"
+                    class="block text-lg font-medium text-gray-700 hover:text-yellow-600">MPro</a>
+                <a href="contact.html"
+                    class="block w-full text-center py-3 bg-gray-900 text-white rounded-xl font-bold mt-4 shadow-lg">Contact
+                    Us</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="py-4 sm:py-8 max-w-7xl mx-auto px-4 w-full flex-grow">
+        <!-- Mobile: Current Filter Header + Collapsible Filter -->
+        <div class="md:hidden mb-4">
+            <button id="mobile-filter-toggle"
+                class="w-full flex items-center justify-between bg-white p-4 rounded-lg shadow-sm border border-gray-200">
+                <div class="flex items-center gap-2">
+                    <svg class="w-5 h-5 text-amber-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
+                    </svg>
+                    <span class="font-medium text-gray-800">Filter:</span>
+                    <span id="current-filter-text" class="font-bold text-amber-700">All Products</span>
+                </div>
+                <svg id="filter-chevron" class="w-5 h-5 text-gray-500 transition-transform" fill="none"
+                    stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+            </button>
+            <div id="mobile-filter-dropdown"
+                class="hidden bg-white rounded-b-lg shadow-sm border-x border-b border-gray-200 p-4">
+                <div class="grid grid-cols-2 gap-2">
+                    <button
+                        class="mobile-filter-btn py-2 px-3 rounded-lg bg-amber-100 text-amber-800 font-medium text-sm"
+                        data-filter="all">All Products</button>
+                    <button class="mobile-filter-btn py-2 px-3 rounded-lg bg-white text-gray-700 text-sm"
+                        data-filter="string">String</button>
+                    <button class="mobile-filter-btn py-2 px-3 rounded-lg bg-white text-gray-700 text-sm"
+                        data-filter="percussion">Percussion</button>
+                    <button class="mobile-filter-btn py-2 px-3 rounded-lg bg-white text-gray-700 text-sm"
+                        data-filter="wind">Wind</button>
+                    <button class="mobile-filter-btn py-2 px-3 rounded-lg bg-white text-gray-700 text-sm"
+                        data-filter="keyboard">Keyboard</button>
+                    <button class="mobile-filter-btn py-2 px-3 rounded-lg bg-white text-gray-700 text-sm"
+                        data-filter="electronic">Electronic</button>
+                    <button class="mobile-filter-btn py-2 px-3 rounded-lg bg-white text-gray-700 text-sm"
+                        data-filter="accessories">Accessories</button>
+                    <button class="mobile-filter-btn py-2 px-3 rounded-lg bg-white text-gray-700 text-sm"
+                        data-filter="mpro">Mpro</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Page Header - Hidden on mobile, visible above filter on desktop -->
+        <div class="hidden md:block text-center mb-6 sm:mb-10">
+            <h1 class="text-2xl sm:text-3xl font-bold mb-2 sm:mb-3">Our Premium Collection</h1>
+            <p class="text-gray-600 max-w-2xl mx-auto text-sm sm:text-base">Discover authentic handcrafted Indian
+                classical instruments. Browse our curated selection of Sitar, Tabla, Bansuri and more.</p>
+        </div>
+
+        <div class="flex flex-col md:flex-row gap-4 sm:gap-8">
+            <!-- Filter Sidebar - Hidden on Mobile, visible on Desktop -->
+            <aside class="hidden md:block w-full md:w-1/5">
+                <div class="bg-white p-4 sm:p-5 rounded-lg shadow-sm md:sticky md:top-32">
+                    <h3 class="font-bold text-base sm:text-lg mb-3 sm:mb-4 text-amber-800">Browse Categories</h3>
+                    <ul class="space-y-2 sm:space-y-3 text-gray-700 font-medium text-sm sm:text-base">
+                        <li><a href="#"
+                                class="filter-btn hover:text-amber-700 transition block text-amber-700 font-bold"
+                                data-filter="all">All Products</a></li>
+                        <li class="pt-2 border-t"><span
+                                class="text-xs text-gray-400 uppercase tracking-wide">Traditional Instruments</span>
+                        </li>
+                        <li><a href="#" class="filter-btn hover:text-amber-700 transition block"
+                                data-filter="percussion">Percussion</a></li>
+                        <li><a href="#" class="filter-btn hover:text-amber-700 transition block"
+                                data-filter="string">String</a></li>
+                        <li><a href="#" class="filter-btn hover:text-amber-700 transition block"
+                                data-filter="wind">Wind</a></li>
+                        <li><a href="#" class="filter-btn hover:text-amber-700 transition block"
+                                data-filter="keyboard">Keyboard</a></li>
+                        <li class="pt-2 border-t"><span class="text-xs text-gray-400 uppercase tracking-wide">Modern &
+                                More</span></li>
+                        <li><a href="#" class="filter-btn hover:text-amber-700 transition block"
+                                data-filter="electronic">Electronic</a></li>
+                        <li><a href="#" class="filter-btn hover:text-amber-700 transition block"
+                                data-filter="accessories">Accessories</a></li>
+                        <li><a href="#" class="filter-btn hover:text-amber-700 transition block"
+                                data-filter="mpro">Mpro</a></li>
+                    </ul>
+                </div>
+            </aside>
+
+            <!-- Product Grid -->
+            <div id="product-grid"
+                class="w-full md:w-4/5 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-5">
+                <div class="col-span-full text-center py-12 text-gray-500">
+                    <div class="animate-spin rounded-full h-10 w-10 border-b-2 border-amber-700 mx-auto mb-4"></div>
+                    Loading products...
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8 sm:py-10 mt-auto">
+        <div
+            class="max-w-7xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 text-center md:text-left">
+            <div>
+                <img src="./assets/images/ui/logo.png" class="h-12 mb-4 mx-auto md:mx-0"
+                    alt="Traditional Music Instruments - Premium Handcrafted Indian Classical Instruments" />
+                <p class="text-gray-400 text-sm">Premium handcrafted instruments for the dedicated musician.</p>
+            </div>
+            <div>
+                <h4 class="font-bold mb-3 sm:mb-4">Categories</h4>
+                <ul class="space-y-2 text-sm text-gray-400">
+                    <li><a href="products.html?filter=string" class="hover:text-yellow-400 transition-colors">String</a>
+                    </li>
+                    <li><a href="products.html?filter=percussion"
+                            class="hover:text-yellow-400 transition-colors">Percussion</a></li>
+                    <li><a href="products.html?filter=electronic"
+                            class="hover:text-yellow-400 transition-colors">Electronic</a></li>
+                    <li><a href="products.html?filter=mpro" class="hover:text-yellow-400 transition-colors">Mpro</a>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold mb-3 sm:mb-4">Contact</h4>
+                <p class="text-sm text-gray-400">123 Music Street, Kathmandu<br />+977 1234567890</p>
+            </div>
+        </div>
+        <div class="text-center text-gray-500 text-xs mt-8 sm:mt-10">© 2026 Traditional Music Instruments.</div>
+    </footer>
+
+    <script src="assets/js/products_data.js"></script>
+    <script src="assets/js/product.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/whatsapp.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            const grid = document.getElementById('product-grid');
+            const filterLabels = { all: 'All Products', string: 'String', percussion: 'Percussion', wind: 'Wind', keyboard: 'Keyboard', electronic: 'Electronic', accessories: 'Accessories', mpro: 'Mpro' };
+            let allProducts = [];
+
+            const urlParams = new URLSearchParams(window.location.search);
+            let currentFilter = urlParams.get('filter') || 'all';
+
+            // Mobile filter elements
+            const filterToggle = document.getElementById('mobile-filter-toggle');
+            const filterDropdown = document.getElementById('mobile-filter-dropdown');
+            const filterChevron = document.getElementById('filter-chevron');
+            const currentFilterText = document.getElementById('current-filter-text');
+
+            // Update filter text on load
+            if (currentFilterText) {
+                currentFilterText.textContent = filterLabels[currentFilter] || 'All Products';
+            }
+
+            // Mobile filter toggle
+            if (filterToggle && filterDropdown) {
+                filterToggle.addEventListener('click', () => {
+                    filterDropdown.classList.toggle('hidden');
+                    filterChevron?.classList.toggle('rotate-180');
+                });
+            }
+
+            try {
+                const response = await fetch('data/products.json');
+                if (!response.ok) throw new Error('Failed to load products');
+                const data = await response.json();
+                allProducts = data.products;
+
+                // Update desktop active filter
+                if (currentFilter !== 'all') {
+                    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('text-amber-700', 'font-bold'));
+                    const activeBtn = document.querySelector(`.filter-btn[data-filter="${CSS.escape(currentFilter)}"]`);
+                    if (activeBtn) activeBtn.classList.add('text-amber-700', 'font-bold');
+                }
+
+                // Update mobile active filter
+                document.querySelectorAll('.mobile-filter-btn').forEach(b => {
+                    b.classList.remove('bg-amber-100', 'text-amber-800', 'font-medium');
+                    b.classList.add('bg-white', 'text-gray-700');
+                });
+                const activeMobileBtn = document.querySelector(`.mobile-filter-btn[data-filter="${CSS.escape(currentFilter)}"]`);
+                if (activeMobileBtn) {
+                    activeMobileBtn.classList.remove('bg-white', 'text-gray-700');
+                    activeMobileBtn.classList.add('bg-amber-100', 'text-amber-800', 'font-medium');
+                }
+
+                const filtered = currentFilter === 'all' ? allProducts : allProducts.filter(p => p.category === currentFilter);
+                renderProducts(filtered);
+            } catch (error) {
+                console.error('Error loading products:', error);
+                grid.innerHTML = '<div class="col-span-full text-center py-12 text-red-500">Error loading products. Please try again.</div>';
+            }
+
+            // Desktop filter click handlers
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    applyFilter(btn.dataset.filter);
+                });
+            });
+
+            // Mobile filter click handlers
+            document.querySelectorAll('.mobile-filter-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    applyFilter(btn.dataset.filter);
+                    filterDropdown?.classList.add('hidden');
+                    filterChevron?.classList.remove('rotate-180');
+                });
+            });
+
+            function applyFilter(filter) {
+                currentFilter = filter;
+
+                // Update desktop filter styles
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('text-amber-700', 'font-bold'));
+                const desktopBtn = document.querySelector(`.filter-btn[data-filter="${CSS.escape(filter)}"]`);
+                if (desktopBtn) desktopBtn.classList.add('text-amber-700', 'font-bold');
+
+                // Update mobile filter styles
+                document.querySelectorAll('.mobile-filter-btn').forEach(b => {
+                    b.classList.remove('bg-amber-100', 'text-amber-800', 'font-medium');
+                    b.classList.add('bg-white', 'text-gray-700');
+                });
+                const mobileBtn = document.querySelector(`.mobile-filter-btn[data-filter="${CSS.escape(filter)}"]`);
+                if (mobileBtn) {
+                    mobileBtn.classList.remove('bg-white', 'text-gray-700');
+                    mobileBtn.classList.add('bg-amber-100', 'text-amber-800', 'font-medium');
+                }
+
+                // Update filter text display
+                if (currentFilterText) {
+                    currentFilterText.textContent = filterLabels[filter] || 'All Products';
+                }
+
+                // Filter and render products
+                const filtered = filter === 'all' ? allProducts : allProducts.filter(p => p.category === filter);
+                renderProducts(filtered);
+
+                // Update URL
+                const newUrl = filter === 'all' ? 'products.html' : `products.html?filter=${encodeURIComponent(filter)}`;
+                history.pushState({}, '', newUrl);
+            }
+
+            function renderProducts(products) {
+                if (products.length === 0) {
+                    grid.innerHTML = '<div class="col-span-full text-center py-12 text-gray-500">No products found in this category</div>';
+                    return;
+                }
+                grid.innerHTML = products.map(product => `
+                    <a href="product.html?id=${encodeURIComponent(product.id)}" class="bg-white rounded-lg shadow-sm product-card overflow-hidden hover:shadow-lg transition-shadow">
+                        <div class="aspect-square bg-gray-50 p-2 sm:p-4">
+                            <img src="${escapeHtml(product.image)}" class="w-full h-full object-contain" alt="${escapeHtml(product.name)}" loading="lazy" />
+                        </div>
+                        <div class="p-3 sm:p-4">
+                            <h4 class="font-bold text-gray-900 mb-1 text-sm sm:text-base truncate">${escapeHtml(product.name)}</h4>
+                            <p class="text-xs sm:text-sm text-gray-700 font-medium">${escapeHtml(product.price)}</p>
+                        </div>
+                    </a>
+                `).join('');
+            }
+
+            function escapeHtml(text) {
+                const div = document.createElement('div');
+                div.textContent = text;
+                return div.innerHTML;
+            }
+        });
+    </script>
+</body>
+
+</html>

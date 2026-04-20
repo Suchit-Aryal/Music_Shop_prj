@@ -1,0 +1,687 @@
+<!doctype html>
+<html lang="en">
+  <!--
+How to run this project
+cd /home/upicy/Pictures/MusicShop_Project
+python3 -m http.server 8000
+cloudflared tunnel --url http://localhost:8000
+-->
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Premium handcrafted Indian classical instruments for musicians worldwide. Sitar, Tabla, Bansuri and more."
+    />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; img-src 'self' data: https:; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self';"
+    />
+    <title>Home | Traditional Music Instruments</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Heebo:wght@500;600&family=Open+Sans:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/whatsapp.css" />
+  </head>
+
+  <body class="font-sans text-gray-900 bg-white min-h-screen flex flex-col">
+    <!-- Navigation Bar -->
+    <header
+      class="bg-white/95 backdrop-blur-md text-gray-900 sticky top-0 z-50 border-b border-gray-100 shadow-sm"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-20">
+          <!-- Increased height for 'task bar' feel -->
+          <!-- Logo Area -->
+          <a href="index.html" class="flex items-center gap-3 group">
+            <div
+              class="bg-gray-900 p-2 rounded-lg transition-transform group-hover:scale-105"
+            >
+              <img
+                src="./assets/images/ui/logo.png"
+                alt="Traditional Music Shop Logo"
+                class="h-8 w-8 object-contain"
+              />
+            </div>
+            <div class="flex flex-col">
+              <span
+                class="text-lg font-bold tracking-tight text-gray-900 leading-tight"
+                >Traditional Music</span
+              >
+              <span class="text-xs text-gray-500 font-medium tracking-wide"
+                >EST. 1990</span
+              >
+            </div>
+          </a>
+
+          <!-- Desktop Navigation -->
+          <nav class="hidden md:flex items-center space-x-8">
+            <a href="index.html" class="text-yellow-600 font-semibold">Home</a>
+
+            <!-- Dropdown -->
+            <div class="relative group">
+              <button
+                class="flex items-center gap-1 text-gray-600 hover:text-yellow-600 font-medium transition-colors py-2"
+              >
+                Instruments
+                <svg
+                  class="w-4 h-4 transition-transform group-hover:rotate-180"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </button>
+              <div
+                class="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-56 bg-white text-gray-900 rounded-xl shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 overflow-hidden transform origin-top"
+              >
+                <div class="p-2 space-y-1">
+                  <a
+                    href="products.html?filter=percussion"
+                    class="block px-4 py-2.5 hover:bg-yellow-50 hover:text-yellow-700 rounded-lg transition-colors"
+                    >Percussion</a
+                  >
+                  <a
+                    href="products.html?filter=string"
+                    class="block px-4 py-2.5 hover:bg-yellow-50 hover:text-yellow-700 rounded-lg transition-colors"
+                    >String Instruments</a
+                  >
+                  <a
+                    href="products.html?filter=wind"
+                    class="block px-4 py-2.5 hover:bg-yellow-50 hover:text-yellow-700 rounded-lg transition-colors"
+                    >Wind Instruments</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <a
+              href="products.html?filter=electronic"
+              class="text-gray-600 hover:text-yellow-600 font-medium transition-colors"
+              >Electronic</a
+            >
+            <a
+              href="products.html?filter=accessories"
+              class="text-gray-600 hover:text-yellow-600 font-medium transition-colors"
+              >Accessories</a
+            >
+            <a
+              href="https://mproaudio.com/"
+              target="_blank"
+              class="text-gray-600 hover:text-yellow-600 font-medium transition-colors"
+              >MPro</a
+            >
+            <a
+              href="contact.html"
+              class="px-5 py-2.5 bg-gray-900 text-white rounded-full font-medium hover:bg-gray-800 transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
+              >Contact Us</a
+            >
+          </nav>
+
+          <!-- Mobile Menu Button -->
+          <button
+            id="mobile-menu-btn"
+            class="md:hidden p-2 text-gray-600 hover:text-gray-900 rounded-lg hover:bg-gray-100 focus:outline-none transition-colors"
+            aria-label="Menu"
+          >
+            <svg
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div
+        id="mobile-menu"
+        class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full left-0 shadow-lg"
+      >
+        <div class="px-4 py-6 space-y-4">
+          <a href="index.html" class="block text-lg font-bold text-yellow-600"
+            >Home</a
+          >
+          <div class="space-y-2 border-l-2 border-gray-100 pl-4">
+            <p
+              class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2"
+            >
+              Collections
+            </p>
+            <a
+              href="products.html?filter=string"
+              class="block text-gray-600 hover:text-yellow-600"
+              >String Instruments</a
+            >
+            <a
+              href="products.html?filter=percussion"
+              class="block text-gray-600 hover:text-yellow-600"
+              >Percussion</a
+            >
+            <a
+              href="products.html?filter=wind"
+              class="block text-gray-600 hover:text-yellow-600"
+              >Wind</a
+            >
+          </div>
+          <a
+            href="products.html?filter=electronic"
+            class="block text-lg font-medium text-gray-700 hover:text-yellow-600"
+            >Electronic</a
+          >
+          <a
+            href="products.html?filter=accessories"
+            class="block text-lg font-medium text-gray-700 hover:text-yellow-600"
+            >Accessories</a
+          >
+          <a
+            href="https://mproaudio.com/"
+            target="_blank"
+            class="block text-lg font-medium text-gray-700 hover:text-yellow-600"
+            >MPro</a
+          >
+          <a
+            href="contact.html"
+            class="block w-full text-center py-3 bg-gray-900 text-white rounded-xl font-bold mt-4 shadow-lg"
+            >Contact Us</a
+          >
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- Unified Category Carousel (6 Items) -->
+      <section class="hero-carousel relative bg-gray-900 group">
+        <div class="overflow-hidden relative">
+          <!-- Carousel Track -->
+          <div
+            id="category-track"
+            class="flex transition-transform duration-700 ease-in-out"
+          >
+            <!-- 1. String -->
+            <a
+              href="products.html?filter=string"
+              class="w-full md:w-1/3 flex-shrink-0 relative h-[450px] block group/panel overflow-hidden"
+            >
+              <img
+                src="./assets/images/hero/sitar-hero.png"
+                alt="String Instruments"
+                class="w-full h-full object-cover transition-transform duration-700 group-hover/panel:scale-110"
+                loading="lazy"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"
+              ></div>
+              <div class="absolute bottom-0 left-0 p-8 text-white">
+                <h3 class="text-3xl font-bold mb-2">String Instruments</h3>
+                <p class="text-gray-300 mb-3 text-sm">
+                  Sitar, Tanpura, Sarangi
+                </p>
+                <span
+                  class="text-yellow-400 font-bold tracking-wide uppercase text-xs"
+                  >Explore Collection &rarr;</span
+                >
+              </div>
+            </a>
+
+            <!-- 2. Percussion -->
+            <a
+              href="products.html?filter=percussion"
+              class="w-full md:w-1/3 flex-shrink-0 relative h-[450px] block group/panel overflow-hidden"
+            >
+              <img
+                src="./assets/images/hero/tabla-hero.png"
+                alt="Percussion Instruments"
+                class="w-full h-full object-cover transition-transform duration-700 group-hover/panel:scale-110"
+                loading="lazy"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"
+              ></div>
+              <div class="absolute bottom-0 left-0 p-8 text-white">
+                <h3 class="text-3xl font-bold mb-2">Percussion</h3>
+                <p class="text-gray-300 mb-3 text-sm">
+                  Tabla, Dholak, Mridangam
+                </p>
+                <span
+                  class="text-yellow-400 font-bold tracking-wide uppercase text-xs"
+                  >Explore Collection &rarr;</span
+                >
+              </div>
+            </a>
+
+            <!-- 3. Wind -->
+            <a
+              href="products.html?filter=wind"
+              class="w-full md:w-1/3 flex-shrink-0 relative h-[450px] block group/panel overflow-hidden"
+            >
+              <img
+                src="./assets/images/hero/bansuri-flute.png"
+                alt="Wind Instruments"
+                class="w-full h-full object-cover transition-transform duration-700 group-hover/panel:scale-110"
+                loading="lazy"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"
+              ></div>
+              <div class="absolute bottom-0 left-0 p-8 text-white">
+                <h3 class="text-3xl font-bold mb-2">Wind Instruments</h3>
+                <p class="text-gray-300 mb-3 text-sm">Bansuri, Shehnai</p>
+                <span
+                  class="text-yellow-400 font-bold tracking-wide uppercase text-xs"
+                  >Explore Collection &rarr;</span
+                >
+              </div>
+            </a>
+
+            <!-- 4. MPro Audio -->
+            <a
+              href="https://mproaudio.com/"
+              target="_blank"
+              class="w-full md:w-1/3 flex-shrink-0 relative h-[450px] block group/panel overflow-hidden"
+            >
+              <img
+                src="./assets/images/hero/mpro_audio.png"
+                alt="MPro Audio"
+                class="w-full h-full object-cover transition-transform duration-700 group-hover/panel:scale-110 grayscale hover:grayscale-0"
+                loading="lazy"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"
+              ></div>
+              <div class="absolute bottom-0 left-0 p-8 text-white">
+                <h3 class="text-3xl font-bold mb-2">MPro Audio</h3>
+                <p class="text-gray-300 mb-3 text-sm">
+                  Professional Audio Systems
+                </p>
+                <span
+                  class="text-yellow-400 font-bold tracking-wide uppercase text-xs"
+                  >Visit MProAudio.com &rarr;</span
+                >
+              </div>
+            </a>
+
+            <!-- 5. Electronic -->
+            <a
+              href="products.html?filter=electronic"
+              class="w-full md:w-1/3 flex-shrink-0 relative h-[450px] block group/panel overflow-hidden"
+            >
+              <img
+                src="./assets/images/products/guitar-shop-electric.png"
+                alt="Electronic Instruments"
+                class="w-full h-full object-cover transition-transform duration-700 group-hover/panel:scale-110"
+                loading="lazy"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"
+              ></div>
+              <div class="absolute bottom-0 left-0 p-8 text-white">
+                <h3 class="text-3xl font-bold mb-2">Electronic</h3>
+                <p class="text-gray-300 mb-3 text-sm">Keyboards, Guitars</p>
+                <span
+                  class="text-yellow-400 font-bold tracking-wide uppercase text-xs"
+                  >Explore Collection &rarr;</span
+                >
+              </div>
+            </a>
+
+            <!-- 6. Accessories -->
+            <a
+              href="products.html?filter=accessories"
+              class="w-full md:w-1/3 flex-shrink-0 relative h-[450px] block group/panel overflow-hidden"
+            >
+              <img
+                src="./assets/images/hero/harmonium-hero.png"
+                alt="Accessories"
+                class="w-full h-full object-cover transition-transform duration-700 group-hover/panel:scale-110"
+                loading="lazy"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"
+              ></div>
+              <div class="absolute bottom-0 left-0 p-8 text-white">
+                <h3 class="text-3xl font-bold mb-2">Accessories</h3>
+                <p class="text-gray-300 mb-3 text-sm">
+                  Essentials for Musicians
+                </p>
+                <span
+                  class="text-yellow-400 font-bold tracking-wide uppercase text-xs"
+                  >Explore Collection &rarr;</span
+                >
+              </div>
+            </a>
+          </div>
+
+          <!-- Navigation (Visible on hover) -->
+          <button
+            id="cat-prev-btn"
+            class="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/10 hover:bg-white text-white hover:text-black rounded-full backdrop-blur-md flex items-center justify-center transition-all opacity-0 group-hover:opacity-100 z-20"
+            aria-label="Previous"
+          >
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M15 19l-7-7 7-7"
+              />
+            </svg>
+          </button>
+          <button
+            id="cat-next-btn"
+            class="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/10 hover:bg-white text-white hover:text-black rounded-full backdrop-blur-md flex items-center justify-center transition-all opacity-0 group-hover:opacity-100 z-20"
+            aria-label="Next"
+          >
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 5l7 7-7 7"
+              />
+            </svg>
+          </button>
+        </div>
+      </section>
+
+      <!-- Featured Masterpieces -->
+      <section class="py-16 bg-gray-50/50">
+        <div class="max-w-7xl mx-auto px-4">
+          <div class="text-center mb-12">
+            <span
+              class="text-yellow-600 font-bold tracking-widest uppercase text-xs"
+              >Curated Selection</span
+            >
+            <h2 class="text-3xl font-extrabold text-gray-900 tracking-tight">
+              Featured Masterpieces
+            </h2>
+          </div>
+
+          <div
+            id="featured-grid"
+            class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6"
+          >
+            <!-- Dynamically Loaded -->
+            <div class="col-span-full text-center py-12 text-gray-400">
+              Loading products...
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Electronics Section -->
+      <section id="electronics" class="py-16 bg-white border-t border-gray-100">
+        <div class="max-w-7xl mx-auto px-4">
+          <div class="flex justify-between items-end mb-10">
+            <div>
+              <span
+                class="text-yellow-600 font-bold tracking-widest uppercase text-xs"
+                >Modern Fusion</span
+              >
+              <h2 class="text-3xl font-extrabold text-gray-900 tracking-tight">
+                Electronic Instruments
+              </h2>
+            </div>
+            <a
+              href="products.html?filter=electronic"
+              class="hidden sm:flex text-gray-500 hover:text-yellow-600 font-medium items-center gap-1 transition-colors"
+              >View All <span class="text-lg">→</span></a
+            >
+          </div>
+
+          <div
+            id="electronics-grid"
+            class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6"
+          >
+            <!-- Dynamically Loaded -->
+          </div>
+        </div>
+      </section>
+
+      <!-- Accessories Scroll Section -->
+      <section
+        class="py-16 bg-gray-50 overflow-hidden border-t border-gray-200"
+      >
+        <div class="max-w-7xl mx-auto px-4">
+          <div class="flex items-center justify-between mb-8">
+            <h2 class="text-2xl font-bold text-gray-900">
+              Essential Accessories
+            </h2>
+            <div class="flex gap-2 text-gray-400 text-sm">
+              <span>Scroll for more</span>
+              <span>→</span>
+            </div>
+          </div>
+
+          <div
+            id="accessories-scroll"
+            class="flex overflow-x-auto gap-4 sm:gap-6 pb-8 snap-x snap-mandatory scrollbar-hide -mx-4 px-4 sm:mx-0 sm:px-0"
+          >
+            <!-- Dynamically Loaded -->
+          </div>
+        </div>
+      </section>
+      <!-- MPro Audio CTA -->
+      <section
+        class="py-16 sm:py-24 bg-gray-900 text-white relative overflow-hidden"
+      >
+        <!-- Background Pattern -->
+        <div
+          class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/dark-matter.png')]"
+        ></div>
+
+        <div class="max-w-7xl mx-auto px-4 text-center relative z-10">
+          <span
+            class="text-yellow-500 font-bold tracking-widest uppercase mb-4 block"
+            >Our Partner</span
+          >
+          <h3 class="text-3xl sm:text-5xl font-extrabold text-white mb-6">
+            MPro Audio
+          </h3>
+          <p
+            class="text-gray-300 max-w-2xl mx-auto mb-10 text-lg leading-relaxed"
+          >
+            Experience sound like never before with professional-grade audio
+            equipment. From majestic speakers to high-fidelity systems, MPro
+            Audio defines the new standard in sound engineering.
+          </p>
+          <div class="flex justify-center gap-4 flex-col sm:flex-row">
+            <a
+              href="https://mproaudio.com/"
+              target="_blank"
+              class="px-10 py-4 bg-yellow-600 text-white rounded-full font-bold hover:bg-yellow-700 transition-all shadow-lg hover:shadow-yellow-500/20 hover:-translate-y-1"
+              >Browse MPro Audio</a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8 sm:py-10 mt-auto">
+      <div
+        class="max-w-7xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 text-center md:text-left"
+      >
+        <div>
+          <img
+            src="./assets/images/ui/logo.png"
+            class="h-12 mb-4 mx-auto md:mx-0"
+            alt="Traditional Music Instruments - Premium Handcrafted Indian Classical Instruments"
+          />
+          <p class="text-gray-400 text-sm">
+            Premium handcrafted instruments for the dedicated musician.
+          </p>
+        </div>
+        <div>
+          <h4 class="font-bold mb-3 sm:mb-4">Categories</h4>
+          <ul class="space-y-2 text-sm text-gray-400">
+            <li>
+              <a
+                href="products.html?filter=string"
+                class="hover:text-yellow-400 transition-colors"
+                >String Instruments</a
+              >
+            </li>
+            <li>
+              <a
+                href="products.html?filter=percussion"
+                class="hover:text-yellow-400 transition-colors"
+                >Percussion</a
+              >
+            </li>
+            <li>
+              <a
+                href="products.html?filter=wind"
+                class="hover:text-yellow-400 transition-colors"
+                >Wind Instruments</a
+              >
+            </li>
+            <li>
+              <a
+                href="products.html?filter=electronic"
+                class="hover:text-yellow-400 transition-colors"
+                >Electronic</a
+              >
+            </li>
+            <li>
+              <a
+                href="products.html?filter=accessories"
+                class="hover:text-yellow-400 transition-colors"
+                >Accessories</a
+              >
+            </li>
+            <li>
+              <a
+                href="products.html?filter=mpro"
+                class="hover:text-yellow-400 transition-colors"
+                >Mpro</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-bold mb-3 sm:mb-4">Contact</h4>
+          <p class="text-sm text-gray-400">
+            123 Music Street, Kathmandu<br />+977 1234567890
+          </p>
+        </div>
+      </div>
+      <div class="text-center text-gray-500 text-xs mt-8 sm:mt-10">
+        © 2026 Traditional Music Instruments.
+      </div>
+    </footer>
+
+    <script src="assets/js/products_data.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/whatsapp.js"></script>
+    <script>
+      // Auto-rotating Carousel for Mobile
+      (function () {
+        const container = document.getElementById("carousel-container");
+        if (!container) return;
+
+        const slides = container.querySelectorAll(".carousel-slide");
+        const dots = document.querySelectorAll(".carousel-dot");
+        const prevBtn = document.getElementById("carousel-prev");
+        const nextBtn = document.getElementById("carousel-next");
+        let currentIndex = 0;
+        let autoPlayInterval;
+
+        function goToSlide(index) {
+          if (index < 0) index = slides.length - 1;
+          if (index >= slides.length) index = 0;
+          currentIndex = index;
+          container.style.transform = `translateX(-${currentIndex * 100}%)`;
+          dots.forEach((dot, i) => {
+            dot.classList.toggle("bg-white/80", i === currentIndex);
+            dot.classList.toggle("bg-white/40", i !== currentIndex);
+          });
+        }
+
+        function nextSlide() {
+          goToSlide(currentIndex + 1);
+        }
+        function prevSlide() {
+          goToSlide(currentIndex - 1);
+        }
+
+        function startAutoPlay() {
+          autoPlayInterval = setInterval(nextSlide, 3000);
+        }
+
+        function stopAutoPlay() {
+          clearInterval(autoPlayInterval);
+        }
+
+        prevBtn?.addEventListener("click", () => {
+          stopAutoPlay();
+          prevSlide();
+          startAutoPlay();
+        });
+        nextBtn?.addEventListener("click", () => {
+          stopAutoPlay();
+          nextSlide();
+          startAutoPlay();
+        });
+        dots.forEach((dot) =>
+          dot.addEventListener("click", () => {
+            stopAutoPlay();
+            goToSlide(parseInt(dot.dataset.index));
+            startAutoPlay();
+          }),
+        );
+
+        // Touch swipe support
+        let touchStartX = 0;
+        container.addEventListener(
+          "touchstart",
+          (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+            stopAutoPlay();
+          },
+          { passive: true },
+        );
+        container.addEventListener(
+          "touchend",
+          (e) => {
+            const diff = touchStartX - e.changedTouches[0].screenX;
+            if (Math.abs(diff) > 50) diff > 0 ? nextSlide() : prevSlide();
+            startAutoPlay();
+          },
+          { passive: true },
+        );
+
+        startAutoPlay();
+      })();
+    </script>
+    <script src="assets/js/home.js"></script>
+  </body>
+</html>
