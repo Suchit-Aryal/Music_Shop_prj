@@ -61,7 +61,7 @@ whatsapp_popup/
 ### Run Locally
 
 ```bash
-cd /home/upicy/Pictures/MusicShop_Project/whatsapp_popup
+Go to Music_Shop_prj using cd ./Music_Shop_prj then
 python3 -m http.server 8000
 ```
 
