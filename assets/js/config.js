@@ -9,6 +9,6 @@
 //   Supabase dashboard -> Project Settings -> API
 // ---------------------------------------------------------------------------
 window.SUPABASE_CONFIG = {
-  url: "YOUR_SUPABASE_PROJECT_URL", // e.g. https://abcdefgh.supabase.co
+  url: "https://cdyfqpruwjvdytqxyyna.supabase.co",
   anonKey: "YOUR_SUPABASE_ANON_KEY",
 };
