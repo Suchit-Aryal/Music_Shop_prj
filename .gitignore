@@ -1,0 +1,12 @@
+# OS / editor
+.DS_Store
+*.swp
+*~
+
+# local secrets — config.js holds only the PUBLIC anon key (safe to commit).
+# Never commit the service_role key or any .env files.
+*.env
+.env*
+config.local.js
+
+node_modules/

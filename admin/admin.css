@@ -1,0 +1,43 @@
+/* Admin-specific styles layered on top of Tailwind (CDN). */
+.hidden { display: none !important; }
+
+#save-bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 60;
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 70;
+  padding: 1rem;
+}
+
+.modal-card {
+  background: #fff;
+  border-radius: 0.75rem;
+  width: 100%;
+  max-width: 640px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+#toast {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 80;
+  transition: opacity 0.3s ease;
+}
+
+.nav-btn.active {
+  background-color: #111827;
+  color: #fff;
+}

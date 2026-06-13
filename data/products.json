@@ -1,0 +1,345 @@
+{
+  "products": [
+    {
+      "id": "classical-sitar",
+      "name": "Classical Sitar",
+      "category": "string",
+      "series": "String Instruments",
+      "image": "./assets/images/hero/sitar-hero.png",
+      "description": "Premium handcrafted sitar with traditional design. Features a resonating gourd body, intricate decorative work, and superior tonal quality. Perfect for professional performers and serious students of Indian classical music.",
+      "price": "Rs. 45,000",
+      "inStock": true,
+      "whatsappNumber": "9779800000000",
+      "specs": {
+        "Type": "Classical Sitar",
+        "Body Material": "Toon Wood with Gourd",
+        "Strings": "7 Main + 13 Sympathetic",
+        "Finish": "Hand-polished Natural",
+        "Case Included": "Yes (Padded)"
+      }
+    },
+    {
+      "id": "concert-sitar",
+      "name": "Concert Sitar",
+      "category": "string",
+      "series": "String Instruments",
+      "image": "./assets/images/hero/sitar-hero.png",
+      "description": "Professional grade concert sitar designed for stage performances. Enhanced resonance and projection with premium quality materials.",
+      "price": "Rs. 75,000",
+      "inStock": true,
+      "whatsappNumber": "9779800000000",
+      "specs": {
+        "Type": "Concert Sitar",
+        "Body Material": "Premium Toon Wood",
+        "Strings": "7 Main + 13 Sympathetic",
+        "Finish": "Lacquer Polish",
+        "Case Included": "Yes (Hard Case)"
+      }
+    },
+    {
+      "id": "tanpura",
+      "name": "Tanpura",
+      "category": "string",
+      "series": "String Instruments",
+      "image": "./assets/images/hero/sitar-hero.png",
+      "description": "Essential drone instrument for classical music practice and performances. Creates the perfect harmonic backdrop.",
+      "price": "Rs. 32,000",
+      "inStock": true,
+      "whatsappNumber": "9779800000000",
+      "specs": {
+        "Type": "Tanpura",
+        "Body": "Gourd",
+        "Strings": "4 Steel",
+        "Finish": "Natural Polish",
+        "Height": "48 inches"
+      }
+    },
+    {
+      "id": "sarangi",
+      "name": "Sarangi",
+      "category": "string",
+      "series": "String Instruments",
+      "image": "./assets/images/hero/sitar-hero.png",
+      "description": "Bowed string instrument known for its ability to closely imitate the human voice. For advanced players.",
+      "price": "Rs. 42,000",
+      "inStock": true,
+      "whatsappNumber": "9779800000000",
+      "specs": {
+        "Type": "Sarangi",
+        "Body": "Toon Wood",
+        "Strings": "3 Main + 37 Sympathetic",
+        "Bow": "Horsehair",
+        "Case": "Included"
+      }
+    },
+    {
+      "id": "professional-tabla",
+      "name": "Professional Tabla Set",
+      "category": "percussion",
+      "series": "Percussion",
+      "image": "./assets/images/hero/tabla-hero.png",
+      "description": "Delhi style tabla pair crafted by master artisans. Features sheesham wood dayan and copper bayan with traditional tuning blocks.",
+      "price": "Rs. 35,000",
+      "inStock": true,
+      "whatsappNumber": "9779800000000",
+      "specs": {
+        "Type": "Delhi Style Tabla Set",
+        "Dayan Material": "Sheesham Wood",
+        "Bayan Material": "Copper",
+        "Heads": "Goat Skin",
+        "Accessories": "Hammer, Rings, Cover"
+      }
+    },
+    {
+      "id": "student-tabla",
+      "name": "Student Tabla Set",
+      "category": "percussion",
+      "series": "Percussion",
+      "image": "./assets/images/hero/tabla-hero.png",
+      "description": "Entry-level tabla set perfect for beginners. Quality construction at an affordable price point.",
+      "price": "Rs. 15,000",
+      "inStock": true,
+      "whatsappNumber": "9779800000000",
+      "specs": {
+        "Type": "Student Tabla Set",
+        "Dayan Material": "Mango Wood",
+        "Bayan Material": "Steel",
+        "Heads": "Goat Skin",
+        "Accessories": "Hammer, Rings"
+      }
+    },
+    {
+      "id": "dholak-drum",
+      "name": "Dholak Drum",
+      "category": "percussion",
+      "series": "Percussion",
+      "image": "./assets/images/products/dholak.png",
+      "description": "Traditional barrel-shaped drum for folk music and bhajans. Rope-tuned with quality goat skin heads.",
+      "price": "Rs. 8,500",
+      "inStock": true,
+      "whatsappNumber": "9779800000000",
+      "specs": {
+        "Type": "Folk Dholak",
+        "Shell": "Mango Wood",
+        "Heads": "Goat Skin",
+        "Tuning": "Rope & Ring",
+        "Size": "18 inches"
+      }
+    },
+    {
+      "id": "bansuri-flute",
+      "name": "Professional Bansuri",
+      "category": "wind",
+      "series": "Wind Instruments",
+      "image": "./assets/images/hero/bansuri-flute.png",
+      "description": "Professional bamboo flute crafted from aged bamboo. Precise tuning for classical music performances.",
+      "price": "Rs. 8,000",
+      "inStock": true,
+      "whatsappNumber": "9779800000000",
+      "specs": {
+        "Type": "Base Bansuri",
+        "Material": "Aged Bamboo",
+        "Scale": "E Base",
+        "Holes": "6 + 1",
+        "Length": "32 inches"
+      }
+    },
+    {
+      "id": "bansuri-set",
+      "name": "Bansuri Set (3 Flutes)",
+      "category": "wind",
+      "series": "Wind Instruments",
+      "image": "./assets/images/hero/bansuri-flute.png",
+      "description": "Set of three bansuris in different scales. Perfect for students and practitioners.",
+      "price": "Rs. 12,000",
+      "inStock": true,
+      "whatsappNumber": "9779800000000",
+      "specs": {
+        "Type": "Bansuri Set",
+        "Scales": "E, G, A",
+        "Material": "Bamboo",
+        "Includes": "Carry Case"
+      }
+    },
+    {
+      "id": "classical-shehnai",
+      "name": "Classical Shehnai",
+      "category": "wind",
+      "series": "Wind Instruments",
+      "image": "./assets/images/products/shehnai.png",
+      "description": "Traditional shehnai made from quality teak wood. Produces the authentic ceremonial sound.",
+      "price": "Rs. 15,000",
+      "inStock": true,
+      "whatsappNumber": "9779800000000",
+      "specs": {
+        "Type": "Classical Shehnai",
+        "Material": "Teak Wood",
+        "Bell": "Brass",
+        "Reeds": "2 Included",
+        "Case": "Included"
+      }
+    },
+    {
+      "id": "harmonium-deluxe",
+      "name": "Harmonium Deluxe",
+      "category": "keyboard",
+      "series": "Keyboard",
+      "image": "./assets/images/hero/harmonium-hero.png",
+      "description": "Scale changer harmonium with 3.5 octaves. Features multiple reed sets and coupler for rich, full sound.",
+      "price": "Rs. 55,000",
+      "inStock": true,
+      "whatsappNumber": "9779800000000",
+      "specs": {
+        "Type": "Scale Changer",
+        "Keys": "42 (3.5 Octaves)",
+        "Reeds": "Triple Reed",
+        "Bellows": "7 Fold",
+        "Body": "Teak Wood"
+      }
+    },
+    {
+      "id": "portable-harmonium",
+      "name": "Portable Harmonium",
+      "category": "keyboard",
+      "series": "Keyboard",
+      "image": "./assets/images/hero/harmonium-hero.png",
+      "description": "Compact folding harmonium ideal for travel and small gatherings. Lightweight yet produces full sound.",
+      "price": "Rs. 28,000",
+      "inStock": true,
+      "whatsappNumber": "9779800000000",
+      "specs": {
+        "Type": "Folding/Portable",
+        "Keys": "39 (3.25 Octaves)",
+        "Reeds": "Double Reed",
+        "Bellows": "5 Fold",
+        "Body": "Teak Wood"
+      }
+    },
+    {
+      "id": "electric-tanpura",
+      "name": "Electric Tanpura",
+      "category": "electronic",
+      "series": "Electronic Instruments",
+      "image": "./assets/images/hero/harmonium-hero.png",
+      "description": "Digital tanpura with authentic sound samples. Portable and perfect for practice sessions.",
+      "price": "Rs. 12,000",
+      "inStock": true,
+      "whatsappNumber": "9779800000000",
+      "specs": {
+        "Type": "Electronic Tanpura",
+        "Modes": "Male/Female Voice",
+        "Power": "AC/Battery",
+        "Speaker": "Built-in",
+        "Controls": "Pitch, Tempo, Volume"
+      }
+    },
+    {
+      "id": "tabla-machine",
+      "name": "Digital Tabla Machine",
+      "category": "electronic",
+      "series": "Electronic Instruments",
+      "image": "./assets/images/hero/tabla-hero.png",
+      "description": "Electronic tabla with 100+ preset rhythms. Perfect for solo practice and performances.",
+      "price": "Rs. 18,000",
+      "inStock": true,
+      "whatsappNumber": "9779800000000",
+      "specs": {
+        "Type": "Digital Tabla",
+        "Presets": "100+ Taals",
+        "Tempo Range": "10-300 BPM",
+        "Output": "Headphone + Line Out",
+        "Display": "LCD"
+      }
+    },
+    {
+      "id": "instrument-case",
+      "name": "Premium Instrument Case",
+      "category": "accessories",
+      "series": "Accessories",
+      "image": "./assets/images/hero/sitar-hero.png",
+      "description": "Heavy-duty padded case for sitar and similar instruments. Waterproof with shoulder strap.",
+      "price": "Rs. 5,500",
+      "inStock": true,
+      "whatsappNumber": "9779800000000",
+      "specs": {
+        "Type": "Hard Case",
+        "Material": "Oxford Fabric",
+        "Padding": "25mm Foam",
+        "Waterproof": "Yes",
+        "Pockets": "3 Accessory Pockets"
+      }
+    },
+    {
+      "id": "tabla-cover-set",
+      "name": "Tabla Cover Set",
+      "category": "accessories",
+      "series": "Accessories",
+      "image": "./assets/images/hero/tabla-hero.png",
+      "description": "Protective covers for tabla pair with padded interior. Includes hammer pocket.",
+      "price": "Rs. 1,800",
+      "inStock": true,
+      "whatsappNumber": "9779800000000",
+      "specs": {
+        "Type": "Tabla Covers",
+        "Material": "Rexine",
+        "Set Includes": "Dayan Cover, Bayan Cover",
+        "Padding": "Yes",
+        "Hammer Pocket": "Yes"
+      }
+    },
+    {
+      "id": "tuning-hammer",
+      "name": "Professional Tuning Hammer",
+      "category": "accessories",
+      "series": "Accessories",
+      "image": "./assets/images/hero/tabla-hero.png",
+      "description": "Heavy-duty brass tuning hammer for tabla. Ergonomic wooden handle.",
+      "price": "Rs. 800",
+      "inStock": true,
+      "whatsappNumber": "9779800000000",
+      "specs": {
+        "Type": "Tuning Hammer",
+        "Head": "Brass",
+        "Handle": "Rosewood",
+        "Weight": "250g",
+        "Length": "18cm"
+      }
+    },
+    {
+      "id": "mpro-studio-mic",
+      "name": "Mpro Studio Microphone",
+      "category": "mpro",
+      "series": "Mpro Professional",
+      "image": "./assets/images/hero/harmonium-hero.png",
+      "description": "Professional condenser microphone designed for recording Indian classical instruments.",
+      "price": "Rs. 25,000",
+      "inStock": true,
+      "whatsappNumber": "9779800000000",
+      "specs": {
+        "Type": "Condenser Mic",
+        "Pattern": "Cardioid",
+        "Frequency": "20Hz-20kHz",
+        "Connection": "XLR",
+        "Includes": "Shock Mount, Pop Filter"
+      }
+    },
+    {
+      "id": "mpro-audio-interface",
+      "name": "Mpro Audio Interface",
+      "category": "mpro",
+      "series": "Mpro Professional",
+      "image": "./assets/images/hero/harmonium-hero.png",
+      "description": "2-channel USB audio interface for home recording. Low latency with premium preamps.",
+      "price": "Rs. 35,000",
+      "inStock": true,
+      "whatsappNumber": "9779800000000",
+      "specs": {
+        "Type": "Audio Interface",
+        "Inputs": "2 XLR/TRS Combo",
+        "Outputs": "2 TRS + Headphone",
+        "Sample Rate": "192kHz",
+        "Connection": "USB-C"
+      }
+    }
+  ]
+}
