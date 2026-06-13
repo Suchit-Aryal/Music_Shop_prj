@@ -82,7 +82,8 @@ contents of this folder.)
 ## Using the admin panel
 
 Log in at `/admin/` with the email + password you created.
-
+email: admin@musicshop.com
+Password: Admin-23e9a07ddd
 - **Listings** — add / edit / delete products, upload product images, set price,
   stock, specifications, and sort order.
 - **Home page** — edit the hero text and the home sections (show/hide, rename,

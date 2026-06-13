@@ -1,6 +1,9 @@
 // assets/js/product.js
 // Dynamic product loading functionality
 
+// Render hook + current id, used by the live-edit overlay.
+window.MSProduct = { id: null, render: (p) => renderProduct(p) };
+
 document.addEventListener("DOMContentLoaded", () => {
   // Only run on product.html page
   if (!document.getElementById("product-content")) return;
@@ -27,6 +30,7 @@ async function loadProduct() {
     showError();
     return;
   }
+  window.MSProduct.id = productId;
 
   try {
     const product = await DataService.getProduct(productId);
@@ -56,6 +60,9 @@ function renderProduct(product) {
 
   // Update breadcrumb
   document.getElementById("breadcrumb-name").textContent = product.name;
+
+  // Tag the detail container with the product id for live editing
+  document.getElementById("product-content").setAttribute("data-prod-id", product.id);
 
   // Update product info
   document.getElementById("product-image").src = product.image_url;

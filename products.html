@@ -11,6 +11,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@500;600&family=Open+Sans:wght@400;600&display=swap"
         rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/live-edit.css" />
     <link rel="stylesheet" href="assets/css/style.css" />
     <link rel="stylesheet" href="assets/css/whatsapp.css" />
 </head>
@@ -352,13 +353,13 @@
                     return;
                 }
                 grid.innerHTML = products.map(product => `
-                    <a href="product.html?id=${encodeURIComponent(product.id)}" class="bg-white rounded-lg shadow-sm product-card overflow-hidden hover:shadow-lg transition-shadow">
+                    <a href="product.html?id=${encodeURIComponent(product.id)}" class="bg-white rounded-lg shadow-sm product-card overflow-hidden hover:shadow-lg transition-shadow" data-prod-card data-prod-id="${escapeHtml(product.id)}">
                         <div class="aspect-square bg-gray-50 p-2 sm:p-4">
-                            <img src="${escapeHtml(product.image_url)}" class="w-full h-full object-contain" alt="${escapeHtml(product.name)}" loading="lazy" />
+                            <img src="${escapeHtml(product.image_url)}" data-prod-img class="w-full h-full object-contain" alt="${escapeHtml(product.name)}" loading="lazy" />
                         </div>
                         <div class="p-3 sm:p-4">
-                            <h4 class="font-bold text-gray-900 mb-1 text-sm sm:text-base truncate">${escapeHtml(product.name)}</h4>
-                            <p class="text-xs sm:text-sm text-gray-700 font-medium">${escapeHtml(product.price)}</p>
+                            <h4 class="font-bold text-gray-900 mb-1 text-sm sm:text-base truncate" data-prod="name">${escapeHtml(product.name)}</h4>
+                            <p class="text-xs sm:text-sm text-gray-700 font-medium" data-prod="price">${escapeHtml(product.price)}</p>
                         </div>
                     </a>
                 `).join('');
@@ -369,8 +370,18 @@
                 div.textContent = text;
                 return div.innerHTML;
             }
+
+            // Render hook for the live-edit overlay: re-render the grid from a draft list.
+            window.MSProducts = {
+                render(productList) {
+                    allProducts = productList || [];
+                    const filtered = currentFilter === 'all' ? allProducts : allProducts.filter(p => p.category === currentFilter);
+                    renderProducts(filtered);
+                }
+            };
         });
     </script>
+    <script src="assets/js/live-edit.js"></script>
 </body>
 
 </html>

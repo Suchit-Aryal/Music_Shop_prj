@@ -8,6 +8,13 @@ document.addEventListener("DOMContentLoaded", async () => {
     console.error("Contact: failed to load config:", err);
     return;
   }
+  fillContact(config);
+});
+
+// Render hook used by both initial load and the live-edit overlay.
+window.MSContact = { render: fillContact };
+
+function fillContact(config) {
   const c = (config && config.contact) || {};
 
   const setText = (id, val) => {
@@ -51,4 +58,4 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   setHref("ct-instagram", c.instagram_url);
   setHref("ct-facebook", c.facebook_url);
-});
+}

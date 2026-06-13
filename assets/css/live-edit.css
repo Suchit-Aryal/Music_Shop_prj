@@ -1,0 +1,181 @@
+/* Live inline editing overlay (admins only). Loaded on public pages. */
+
+#le-toolbar {
+  position: fixed;
+  bottom: 1.25rem;
+  right: 1.25rem;
+  z-index: 9000;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  font-family: "Open Sans", system-ui, sans-serif;
+}
+#le-toolbar button {
+  font-size: 0.875rem;
+  font-weight: 600;
+  border-radius: 9999px;
+  padding: 0.6rem 1.1rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
+  cursor: pointer;
+  border: none;
+}
+.le-btn-primary { background: #eab308; color: #111827; }
+.le-btn-primary:hover { background: #facc15; }
+.le-btn-dark { background: #111827; color: #fff; }
+.le-btn-dark:hover { background: #374151; }
+.le-btn-ghost { background: #fff; color: #374151; border: 1px solid #e5e7eb !important; }
+.le-btn-ghost:hover { background: #f9fafb; }
+#le-toolbar button:disabled { opacity: 0.5; cursor: default; }
+
+/* a small badge showing unsaved count */
+#le-dirty {
+  background: #ef4444;
+  color: #fff;
+  border-radius: 9999px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.1rem 0.5rem;
+}
+
+/* editable affordances (only while edit mode is on) */
+.le-on [data-cfg],
+.le-on [data-prod],
+.le-on [data-cfg-img],
+.le-on [data-prod-img] {
+  outline: 1px dashed rgba(234, 179, 8, 0.8);
+  outline-offset: 3px;
+  cursor: text;
+  transition: outline-color 0.15s;
+}
+.le-on [data-cfg]:hover,
+.le-on [data-prod]:hover {
+  outline-color: #eab308;
+  background: rgba(234, 179, 8, 0.08);
+}
+.le-on [contenteditable="true"] {
+  outline: 2px solid #eab308 !important;
+  background: #fffbeb;
+}
+
+/* image edit pill */
+.le-img-wrap { position: relative; display: inline-block; }
+.le-img-btn {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  z-index: 50;
+  background: rgba(17, 24, 39, 0.85);
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 9999px;
+  padding: 0.25rem 0.6rem;
+  cursor: pointer;
+}
+
+/* product card overlay */
+.le-card-wrap { position: relative; }
+.le-on .le-card-wrap { outline: 1px dashed rgba(59, 130, 246, 0.6); outline-offset: 2px; }
+.le-card-tools {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 50;
+  display: flex;
+  gap: 6px;
+}
+.le-card-tools button {
+  background: rgba(17, 24, 39, 0.9);
+  color: #fff;
+  border: none;
+  border-radius: 9999px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.25rem 0.55rem;
+  cursor: pointer;
+}
+.le-card-tools button.le-del { background: #dc2626; }
+
+/* add-product tile */
+.le-add-tile {
+  border: 2px dashed #d1d5db;
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 160px;
+  color: #6b7280;
+  font-weight: 600;
+  cursor: pointer;
+}
+.le-add-tile:hover { border-color: #eab308; color: #111827; }
+
+/* slide-over panel */
+#le-panel-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 9500;
+  display: none;
+}
+#le-panel-overlay.le-open { display: block; }
+#le-panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  max-width: 460px;
+  background: #fff;
+  overflow-y: auto;
+  padding: 1.5rem;
+  box-shadow: -10px 0 30px rgba(0, 0, 0, 0.15);
+}
+#le-panel label { display: block; font-size: 0.85rem; font-weight: 500; margin-top: 0.75rem; }
+#le-panel input,
+#le-panel textarea {
+  width: 100%;
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+  padding: 0.5rem 0.7rem;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+/* confirm dialog */
+#le-confirm-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 9800;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+#le-confirm-overlay.le-open { display: flex; }
+#le-confirm {
+  background: #fff;
+  border-radius: 0.75rem;
+  max-width: 380px;
+  width: 100%;
+  padding: 1.5rem;
+}
+
+/* toast */
+#le-toast {
+  position: fixed;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9900;
+  background: #111827;
+  color: #fff;
+  padding: 0.6rem 1.1rem;
+  border-radius: 9999px;
+  font-size: 0.85rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  display: none;
+}
+#le-toast.le-err { background: #dc2626; }

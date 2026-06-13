@@ -13,9 +13,17 @@ document.addEventListener("DOMContentLoaded", async () => {
     showHomeError();
     return;
   }
-  renderHero(data.config.hero);
-  renderHomeSections(data.products, data.config);
+  window.MSHome.render(data.products, data.config);
 });
+
+// Render hook used by both initial load and the live-edit overlay.
+window.MSHome = {
+  render(products, config) {
+    config = config || {};
+    renderHero(config.hero);
+    renderHomeSections(products, config);
+  },
+};
 
 // Fills the editable hero banner from site_config.hero. Hidden if there's nothing to show.
 function renderHero(hero) {
@@ -65,7 +73,7 @@ const SECTION_CONTAINERS = {
 function renderHomeSections(products, config) {
   const sections = (config && config.home_sections) || [];
 
-  sections.forEach((section) => {
+  sections.forEach((section, index) => {
     const containerId = SECTION_CONTAINERS[section.key];
     if (!containerId) return; // unknown section, no place to render
     const container = document.getElementById(containerId);
@@ -87,10 +95,13 @@ function renderHomeSections(products, config) {
 
     if (sectionEl) sectionEl.style.display = "";
 
-    // Optionally sync the section heading with the configured title.
-    if (section.title && sectionEl) {
+    // Sync the section heading with the configured title (and tag it for live editing).
+    if (sectionEl) {
       const heading = sectionEl.querySelector("h2");
-      if (heading) heading.textContent = section.title;
+      if (heading) {
+        if (section.title) heading.textContent = section.title;
+        heading.setAttribute("data-cfg", `home_sections.${index}.title`);
+      }
     }
 
     const isScroll = containerId === "accessories-scroll";
@@ -166,13 +177,13 @@ function createCardHtml(product, isScroll) {
   const contentClasses = isScroll ? "" : "p-4 border-t border-gray-50";
 
   return `
-    <a href="product.html?id=${encodeURIComponent(product.id)}" class="${scrollClasses}">
+    <a href="product.html?id=${encodeURIComponent(product.id)}" class="${scrollClasses}" data-prod-card data-prod-id="${product.id}">
         <div class="${imgContainerClasses}">
-            <img src="${product.image_url}" alt="${product.name}" class="max-h-full max-w-full object-contain group-hover:scale-110 transition-transform duration-500" loading="lazy"/>
+            <img src="${product.image_url}" alt="${product.name}" data-prod-img class="max-h-full max-w-full object-contain group-hover:scale-110 transition-transform duration-500" loading="lazy"/>
         </div>
         <div class="${contentClasses}">
-            <h3 class="font-bold text-gray-900 truncate">${product.name}</h3>
-            <p class="text-yellow-600 font-medium">${product.price}</p>
+            <h3 class="font-bold text-gray-900 truncate" data-prod="name">${product.name}</h3>
+            <p class="text-yellow-600 font-medium" data-prod="price">${product.price}</p>
         </div>
     </a>
     `;

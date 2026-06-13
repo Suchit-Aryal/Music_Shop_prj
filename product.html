@@ -12,6 +12,7 @@
         rel="stylesheet" />
     <link rel="stylesheet" href="assets/css/style.css" />
     <link rel="stylesheet" href="assets/css/whatsapp.css" />
+    <link rel="stylesheet" href="assets/css/live-edit.css" />
 </head>
 
 <body class="font-sans text-gray-900 bg-white min-h-screen flex flex-col">
@@ -134,18 +135,18 @@
                 All Products</a>
         </div>
 
-        <div id="product-content" class="hidden bg-white rounded-lg shadow-sm p-6 lg:p-10">
+        <div id="product-content" data-prod-detail class="hidden bg-white rounded-lg shadow-sm p-6 lg:p-10">
             <div class="flex flex-col md:flex-row gap-10">
                 <div class="w-full md:w-1/2 flex justify-center bg-gray-50 rounded-lg p-6">
-                    <img id="product-image" src="" alt="Product Image" class="max-h-[400px] object-contain" />
+                    <img id="product-image" data-prod-img src="" alt="Product Image" class="max-h-[400px] object-contain" />
                 </div>
                 <div class="w-full md:w-1/2">
                     <span id="stock-badge"
                         class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded font-bold uppercase tracking-wide mb-2">In
                         Stock</span>
-                    <h1 id="product-name" class="text-3xl font-bold text-gray-900 mb-2"></h1>
-                    <p id="product-description" class="text-gray-600 mb-6 leading-relaxed"></p>
-                    <div id="product-price" class="text-2xl font-bold text-gray-900 mb-6"></div>
+                    <h1 id="product-name" data-prod="name" class="text-3xl font-bold text-gray-900 mb-2"></h1>
+                    <p id="product-description" data-prod="description" data-multiline class="text-gray-600 mb-6 leading-relaxed"></p>
+                    <div id="product-price" data-prod="price" class="text-2xl font-bold text-gray-900 mb-6"></div>
 
                     <div class="bg-amber-50 p-5 rounded-lg border border-amber-100 mb-6">
                         <p class="font-bold text-gray-900 mb-2">Interested in this instrument?</p>
@@ -199,6 +200,7 @@
     <script src="assets/js/data-service.js"></script>
     <script src="assets/js/main.js"></script>
     <script src="assets/js/product.js"></script>
+    <script src="assets/js/live-edit.js"></script>
     <script src="assets/js/whatsapp.js"></script>
 </body>
 
