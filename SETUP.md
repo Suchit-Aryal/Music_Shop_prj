@@ -39,9 +39,10 @@ In the Supabase dashboard open **SQL Editor** and run these files **in order**
 (open each, paste, Run):
 
 1. `sql/01_schema.sql` — creates the `products` and `site_config` tables + default home layout
-2. `sql/02_rls.sql` — security rules (public can read, only admin can write)
-3. `sql/03_storage.sql` — creates the `product-images` storage bucket
-4. `sql/04_seed.sql` — loads the initial products
+2. `sql/05_admins.sql` — admin allowlist table + `is_admin()` check
+3. `sql/02_rls.sql` — security rules (public can read, only allowlisted admins can write)
+4. `sql/03_storage.sql` — creates the `product-images` storage bucket
+5. `sql/04_seed.sql` — loads the initial products
 
 ## 4. Create your admin login
 
@@ -50,6 +51,14 @@ In the Supabase dashboard open **SQL Editor** and run these files **in order**
 2. Go to **Authentication → Users → Add user → Create new user**.
 3. Enter the email + password you want to log in with. (Tip: tick
    "Auto Confirm User" so you don't need an email confirmation.)
+4. **Register that user as an admin** — in the SQL Editor run (with your email):
+   ```sql
+   insert into admins (user_id)
+   select id from auth.users where email = 'admin@musicshop.com'
+   on conflict (user_id) do nothing;
+   ```
+   Only users in the `admins` table can change the store, so this step is
+   required even if email sign-up is left enabled.
 
 ## 5. Run the site
 
