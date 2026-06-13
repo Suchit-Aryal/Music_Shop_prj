@@ -10,5 +10,6 @@
 // ---------------------------------------------------------------------------
 window.SUPABASE_CONFIG = {
   url: "https://cdyfqpruwjvdytqxyyna.supabase.co",
-  anonKey: "YOUR_SUPABASE_ANON_KEY",
+  anonKey:
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNkeWZxcHJ1d2p2ZHl0cXh5eW5hIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODEzNDUwNDQsImV4cCI6MjA5NjkyMTA0NH0.4-R81wwfhCo1Wl-kfx6LGyMDSV777FaW0awwu1dzbkA",
 };
