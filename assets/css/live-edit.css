@@ -3,7 +3,7 @@
 #le-toolbar {
   position: fixed;
   bottom: 1.25rem;
-  right: 1.25rem;
+  left: 1.25rem; /* bottom-left so it doesn't cover the WhatsApp button (bottom-right) */
   z-index: 9000;
   display: flex;
   gap: 0.5rem;
