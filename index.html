@@ -208,6 +208,37 @@ cloudflared tunnel --url http://localhost:8000
     </header>
 
     <main>
+      <!-- Hero Banner (editable from admin → Home page → Hero) -->
+      <section
+        id="hero-banner"
+        class="relative bg-gray-900 text-white overflow-hidden"
+        style="display: none"
+      >
+        <img
+          id="hero-image"
+          src=""
+          alt=""
+          class="absolute inset-0 w-full h-full object-cover opacity-40"
+        />
+        <div
+          class="relative max-w-7xl mx-auto px-4 py-20 sm:py-28 text-center"
+        >
+          <h1
+            id="hero-title"
+            class="text-4xl sm:text-6xl font-extrabold tracking-tight mb-4"
+          ></h1>
+          <p
+            id="hero-subtitle"
+            class="text-lg sm:text-xl text-gray-200 max-w-2xl mx-auto mb-8"
+          ></p>
+          <a
+            id="hero-cta"
+            href="#"
+            class="inline-block px-8 py-4 bg-yellow-500 text-gray-900 font-bold rounded-full hover:bg-yellow-400 transition-all shadow-lg"
+          ></a>
+        </div>
+      </section>
+
       <!-- Unified Category Carousel (6 Items) -->
       <section class="hero-carousel relative bg-gray-900 group">
         <div class="overflow-hidden relative">

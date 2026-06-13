@@ -33,6 +33,7 @@
     listings: $("panel-listings"),
     home: $("panel-home"),
     featured: $("panel-featured"),
+    contact: $("panel-contact"),
   };
 
   // ---- state ----
@@ -156,6 +157,7 @@
       hero: cfg.hero || {},
       home_sections: Array.isArray(cfg.home_sections) ? cfg.home_sections : [],
       suggestions: Array.isArray(cfg.suggestions) ? cfg.suggestions : [],
+      contact: cfg.contact || {},
     };
   }
 
@@ -204,6 +206,7 @@
     if (activeView === "listings") renderListings();
     else if (activeView === "home") renderHome();
     else if (activeView === "featured") renderFeatured();
+    else if (activeView === "contact") renderContact();
   }
 
   // ============================================================== save/discard
@@ -249,6 +252,7 @@
         hero: draft.config.hero,
         home_sections: draft.config.home_sections,
         suggestions: draft.config.suggestions,
+        contact: draft.config.contact,
         updated_at: new Date().toISOString(),
       });
       if (cErr) throw cErr;
@@ -585,6 +589,41 @@
       </div>`;
   }
 
+  // ============================================================== CONTACT EDITOR
+  function renderContact() {
+    const c = draft.config.contact || {};
+    const field = (label, key, val) =>
+      `<label class="text-sm block">${label}
+        <input type="text" data-contact="${key}" value="${esc(val)}" class="mt-1 w-full border border-gray-300 rounded-lg px-3 py-2 text-sm"/>
+      </label>`;
+    const area = (label, key, val) =>
+      `<label class="text-sm block">${label}
+        <textarea data-contact="${key}" rows="3" class="mt-1 w-full border border-gray-300 rounded-lg px-3 py-2 text-sm">${esc(val)}</textarea>
+      </label>`;
+
+    panels.contact.innerHTML = `
+      <h2 class="text-xl font-bold mb-4">Contact page</h2>
+      <div class="bg-white rounded-xl shadow-sm p-5 space-y-4 max-w-3xl">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          ${field("Eyebrow (small heading)", "eyebrow", c.eyebrow)}
+          ${field("Headline", "headline", c.headline)}
+        </div>
+        ${area("Intro text", "intro", c.intro)}
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          ${field("Phone (display)", "phone", c.phone)}
+          ${field("WhatsApp number (digits, e.g. 9779761800954)", "whatsapp_number", c.whatsapp_number)}
+          ${field("Email", "email", c.email)}
+        </div>
+        ${area("Address (one line each)", "address", c.address)}
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          ${field("Hours — weekdays", "hours_weekday", c.hours_weekday)}
+          ${field("Hours — Saturday", "hours_saturday", c.hours_saturday)}
+          ${field("Instagram URL", "instagram_url", c.instagram_url)}
+          ${field("Facebook URL", "facebook_url", c.facebook_url)}
+        </div>
+      </div>`;
+  }
+
   // ============================================================== delegation
   function onDelegatedClick(e) {
     const el = e.target.closest("[data-action]");
@@ -640,6 +679,10 @@
     } else if (t.hasAttribute("data-section-limit")) {
       draft.config.home_sections[Number(t.dataset.index)].limit =
         Number(t.value) || 0;
+      markDirty();
+    } else if (t.dataset.contact != null) {
+      if (!draft.config.contact) draft.config.contact = {};
+      draft.config.contact[t.dataset.contact] = t.value;
       markDirty();
     }
   }

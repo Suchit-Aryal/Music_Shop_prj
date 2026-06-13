@@ -43,6 +43,7 @@ In the Supabase dashboard open **SQL Editor** and run these files **in order**
 3. `sql/02_rls.sql` — security rules (public can read, only allowlisted admins can write)
 4. `sql/03_storage.sql` — creates the `product-images` storage bucket
 5. `sql/04_seed.sql` — loads the initial products
+6. `sql/06_contact.sql` — adds editable contact-page content
 
 ## 4. Create your admin login
 

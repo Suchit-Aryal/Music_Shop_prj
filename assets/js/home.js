@@ -13,8 +13,46 @@ document.addEventListener("DOMContentLoaded", async () => {
     showHomeError();
     return;
   }
+  renderHero(data.config.hero);
   renderHomeSections(data.products, data.config);
 });
+
+// Fills the editable hero banner from site_config.hero. Hidden if there's nothing to show.
+function renderHero(hero) {
+  hero = hero || {};
+  const banner = document.getElementById("hero-banner");
+  if (!banner) return;
+
+  if (!hero.title && !hero.subtitle && !hero.image) {
+    banner.style.display = "none";
+    return;
+  }
+  banner.style.display = "";
+
+  const setText = (id, val) => {
+    const el = document.getElementById(id);
+    if (el) el.textContent = val || "";
+  };
+  setText("hero-title", hero.title);
+  setText("hero-subtitle", hero.subtitle);
+
+  const img = document.getElementById("hero-image");
+  if (img) {
+    img.src = hero.image || "";
+    img.style.display = hero.image ? "" : "none";
+  }
+
+  const cta = document.getElementById("hero-cta");
+  if (cta) {
+    if (hero.ctaText) {
+      cta.textContent = hero.ctaText;
+      cta.href = hero.ctaLink || "#";
+      cta.style.display = "";
+    } else {
+      cta.style.display = "none";
+    }
+  }
+}
 
 // Maps a config section key to the grid container that already exists in index.html.
 const SECTION_CONTAINERS = {
